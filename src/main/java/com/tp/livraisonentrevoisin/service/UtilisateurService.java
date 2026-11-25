@@ -60,4 +60,10 @@ public class UtilisateurService {
             throw new RegleMetierException("Un compte existe déjà avec cet email");
         }
     }
+
+    // Pour ouvrir un groupe (F6)
+    @Transactional(readOnly = true)
+    public List<AgenceLivraison> listerAgencesDuQuartier(Long quartierId) {
+        return agenceRepository.findByValideTrueAndQuartiersId(quartierId);
+    }
 }
