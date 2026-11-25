@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface AgenceRepository extends JpaRepository<AgenceLivraison, Long> {
     List<AgenceLivraison> findByValideTrueAndQuartiersId(Long quartierId);
+
+    List<AgenceLivraison> findAllByValideFalse();
 }
