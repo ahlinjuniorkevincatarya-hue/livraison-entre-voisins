@@ -27,4 +27,4 @@ public class EtatCloturee extends EtatAbstrait {
         commande.setStatut(StatutCommande.CONFIRMEE);
     }
 }
-}
+
