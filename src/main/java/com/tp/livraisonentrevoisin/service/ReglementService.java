@@ -23,7 +23,7 @@ public class ReglementService {
     private final ParticipationRepository participationRepository;
     private final FraisService fraisService;
 
-    // F13 - marquer la commande comme livrée
+    // F13 : marquer la commande comme livrée
     @Transactional
     public CommandeGroupee marquerLivree(Long commandeId, Long organisateurId) {
         CommandeGroupee commande = commandeRepository.findById(commandeId)
@@ -39,7 +39,7 @@ public class ReglementService {
         return commandeRepository.save(commande);
     }
 
-    // F13 - marquer la part d'un participant comme réglée
+    // F13 : marquer la part d'un participant comme réglée
     @Transactional
     public Participation marquerPartReglee(Long participationId, Long organisateurId) {
         Participation participation = participationRepository.findById(participationId)

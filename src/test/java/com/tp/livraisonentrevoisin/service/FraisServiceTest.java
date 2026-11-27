@@ -63,6 +63,6 @@ class FraisServiceTest {
 
     @Test
     void participationInexistante_estRefusee() {
-        assertThrows(IllegalArgumentException.class, () -> fraisService.calculerPart(999L));
+        assertThrows(RegleMetierException.class, () -> fraisService.calculerPart(999L));
     }
 }

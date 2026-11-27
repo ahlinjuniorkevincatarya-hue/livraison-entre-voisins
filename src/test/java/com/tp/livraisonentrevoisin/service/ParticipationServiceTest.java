@@ -2,6 +2,7 @@ package com.tp.livraisonentrevoisin.service;
 
 import com.tp.livraisonentrevoisin.dao.entities.LigneArticle;
 import com.tp.livraisonentrevoisin.dao.repositories.ArticleRepository;
+import com.tp.livraisonentrevoisin.exception.RegleMetierException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -39,22 +40,22 @@ class ParticipationServiceTest {
 
     @Test
     void ajouterDansGroupeCloture_estRefuse() {
-        assertThrows(IllegalStateException.class, () -> service.ajouterArticle(3L, 1L, 1));
+        assertThrows(RegleMetierException.class, () -> service.ajouterArticle(3L, 1L, 1));
     }
 
     @Test
     void ajouterProduitDesactive_estRefuse() {
-        assertThrows(IllegalStateException.class, () -> service.ajouterArticle(1L, 6L, 1));
+        assertThrows(RegleMetierException.class, () -> service.ajouterArticle(1L, 6L, 1));
     }
 
     @Test
     void ajouterProduitAutreAgence_estRefuse() {
-        assertThrows(IllegalStateException.class, () -> service.ajouterArticle(1L, 7L, 1));
+        assertThrows(RegleMetierException.class, () -> service.ajouterArticle(1L, 7L, 1));
     }
 
     @Test
     void quantiteZero_estRefusee() {
-        assertThrows(IllegalArgumentException.class, () -> service.ajouterArticle(1L, 2L, 0));
+        assertThrows(RegleMetierException.class, () -> service.ajouterArticle(1L, 2L, 0));
     }
 
     @Test
@@ -66,7 +67,7 @@ class ParticipationServiceTest {
     @Test
     void modifierDansGroupeCloture_estRefuse() {
         // la ligne 4 appartient à la participation 3 (groupe clôturé)
-        assertThrows(IllegalStateException.class, () -> service.modifierArticle(4L, 2));
+        assertThrows(RegleMetierException.class, () -> service.modifierArticle(4L, 2));
     }
 
     @Test
@@ -77,6 +78,6 @@ class ParticipationServiceTest {
 
     @Test
     void retirerDansGroupeCloture_estRefuse() {
-        assertThrows(IllegalStateException.class, () -> service.retirerArticle(4L));
+        assertThrows(RegleMetierException.class, () -> service.retirerArticle(4L));
     }
 }
