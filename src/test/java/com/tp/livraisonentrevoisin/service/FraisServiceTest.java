@@ -1,5 +1,6 @@
 package com.tp.livraisonentrevoisin.service;
 
+import com.tp.livraisonentrevoisin.exception.RegleMetierException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
